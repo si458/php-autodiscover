@@ -1,0 +1,52 @@
+POST REQUEST IN XML to autodiscover/autodiscover.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<Autodiscover xmlns="http://schemas.microsoft.com/exchange/autodiscover/outlook/requestschema/2006">
+    <Request>
+        <EMailAddress>simon@example.com</EMailAddress>
+        <AcceptableResponseSchema>http://schemas.microsoft.com/exchange/autodiscover/outlook/responseschema/2006a</AcceptableResponseSchema>
+    </Request>
+</Autodiscover>
+
+RESPONSE:
+
+<?xml version="1.0" encoding="utf-8"?>
+<Autodiscover xmlns="http://schemas.microsoft.com/exchange/autodiscover/responseschema/2006">
+   <Response xmlns="http://schemas.microsoft.com/exchange/autodiscover/outlook/responseschema/2006a">
+       <Account>
+           <AccountType>email</AccountType>
+           <Action>settings</Action>
+           <Protocol>
+               <Type>IMAP</Type>
+               <Server>imap.example.com</Server>
+               <Port>143</Port>
+               <DomainRequired>off</DomainRequired>
+               <LoginName>simon@example.com</LoginName>
+               <SPA>off</SPA>
+               <SSL>off</SSL>
+               <AuthRequired>on</AuthRequired>
+           </Protocol>
+           <Protocol>
+               <Type>POP3</Type>
+               <Server>pop.example.com</Server>
+               <Port>110</Port>
+               <DomainRequired>off</DomainRequired>
+               <LoginName>simon@example.com</LoginName>
+               <SPA>off</SPA>
+               <SSL>off</SSL>
+               <AuthRequired>on</AuthRequired>
+           </Protocol>
+           <Protocol>
+               <Type>SMTP</Type>
+               <Server>smtp.example.com</Server>
+               <Port>25</Port>
+               <DomainRequired>off</DomainRequired>
+               <LoginName>simon@example.com</LoginName>
+               <SPA>off</SPA>
+               <AuthRequired>on</AuthRequired>
+               <UsePOPAuth>off</UsePOPAuth>
+               <SMTPLast>off</SMTPLast>
+           </Protocol>
+       </Account>
+   </Response>
+</Autodiscover>

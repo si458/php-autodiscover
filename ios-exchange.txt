@@ -1,0 +1,31 @@
+POST REQUEST IN XML to Autodiscover/Autodiscover.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<Autodiscover xmlns="http://schemas.microsoft.com/exchange/autodiscover/mobilesync/requestschema/2006">
+    <Request>
+        <EMailAddress>simon@example.com</EMailAddress>
+        <AcceptableResponseSchema>http://schemas.microsoft.com/exchange/autodiscover/mobilesync/responseschema/2006</AcceptableResponseSchema>
+    </Request>
+</Autodiscover>
+
+RESPONSE:
+
+<?xml version="1.0" encoding="utf-8"?>
+<Autodiscover xmlns="http://schemas.microsoft.com/exchange/autodiscover/responseschema/2006" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Response xmlns="http://schemas.microsoft.com/exchange/autodiscover/mobilesync/responseschema/2006">
+        <Culture>en:us</Culture>
+        <User>
+            <DisplayName>simon@example.com</DisplayName>
+            <EMailAddress>simon@example.com</EMailAddress>
+        </User>
+        <Action>
+            <Settings>
+                <Server>
+                    <Type>MobileSync</Type>
+                    <Url>https://mail.example.com/Microsoft-Server-ActiveSync</Url>
+                    <Name>https://mail.example.com/Microsoft-Server-ActiveSync</Name>
+                </Server>
+            </Settings>
+        </Action>
+    </Response>
+</Autodiscover>
