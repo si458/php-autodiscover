@@ -1,7 +1,7 @@
 <?php
-$settings = [
+$settings = array(
     'debugtofile' => true,
-    'imap' => [
+    'imap' => array(
         'enabled' => true,
         'server' => 'imap.example.com',
         'port' => 143,
@@ -9,8 +9,8 @@ $settings = [
         'spa' => false,
         'ssl' => false,
         'authrequired' => true
-    ],
-    'smtp' => [
+    ),
+    'smtp' => array(
         'enabled' => true,
         'server' => 'smtp.example.com',
         'port' => 25,
@@ -20,8 +20,8 @@ $settings = [
         'authrequired' => true,
         'usepopauth' => false,
         'smtplast' => false,
-    ],
-    'pop' => [
+    ),
+    'pop' => array(
         'enabled' => false,
         'server' => 'pop.example.com',
         'port' => 110,
@@ -29,10 +29,10 @@ $settings = [
         'spa' => false,
         'ssl' => false,
         'authrequired' => true
-    ],
-    'activesync' => [
+    ),
+    'activesync' => array(
         'enabled' => true,
         'server' => 'mail.example.com',
         'ssl' => true,
-    ]
-];
+    )
+);

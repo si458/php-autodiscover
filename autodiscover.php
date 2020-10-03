@@ -3,7 +3,7 @@ header('Content-Type: application/xml');
 function outputXML($data, $error)
 {
     if ($error) {
-        http_response_code(400);
+        header('HTTP/1.1 400 Bad Request');
         $xml = new SimpleXMLElement('<Error/>');
         $xml->addChild('Description', $data);
     } else {
@@ -42,7 +42,7 @@ if (count($mobilesync) > 0) {
     if ($settings['activesync']['enabled'] == false) {
         outputXML('you havnt enabled activesync', true);
     }
-    $response = $xml->addChild('Response', '', 'http://schemas.microsoft.com/exchange/autodiscover/mobilesync/responseschema/2006a');
+    $response = $xml->addChild('Response', '', 'http://schemas.microsoft.com/exchange/autodiscover/mobilesync/responseschema/2006');
     $response->addChild('Culture', 'en:us');
     $user = $response->addChild('User');
     $user->addChild('DisplayName', $email);
@@ -56,7 +56,7 @@ if (count($mobilesync) > 0) {
     $account = $response->addChild('Account');
     $account->addChild('AccountType', 'email');
     $account->addChild('Action', 'settings');
-    $list = ['imap', 'smtp', 'pop'];
+    $list = array('imap', 'smtp', 'pop');
     foreach ($list as $value) {
         if ($settings[$value]['enabled']) {
             $protocol = $account->addChild('Protocol');
